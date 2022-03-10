@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>gby`s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 动态规划专题date: 2022-03-10 19:10:13tags: leetcode 动态规划五部曲：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV13Q4y197Wg?from&#x3D;search&amp;seid&#x3D;2081159200671100340&amp;spm_id_from&#x3D;333.337.0.0 1、dp数组的定义和下标。要明确dp数组中每个元素的含义，">
+  <meta name="description" content="title: 动态规划专题date: 2022-03-10 19:10:13tags: leetcode 思考动态规划问题五个步骤 动态规划五部曲：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV13Q4y197Wg?from&#x3D;search&amp;seid&#x3D;2081159200671100340&amp;spm_id_from&#x3D;333.337.0.0 1. dp数组的定义和下标。要明">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gby&#96;s blog">
 <meta property="og:url" content="http://example.com/2022/03/10/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B8%93%E9%A2%98/index.html">
 <meta property="og:site_name" content="gby&#96;s blog">
-<meta property="og:description" content="title: 动态规划专题date: 2022-03-10 19:10:13tags: leetcode 动态规划五部曲：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV13Q4y197Wg?from&#x3D;search&amp;seid&#x3D;2081159200671100340&amp;spm_id_from&#x3D;333.337.0.0 1、dp数组的定义和下标。要明确dp数组中每个元素的含义，">
+<meta property="og:description" content="title: 动态规划专题date: 2022-03-10 19:10:13tags: leetcode 思考动态规划问题五个步骤 动态规划五部曲：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV13Q4y197Wg?from&#x3D;search&amp;seid&#x3D;2081159200671100340&amp;spm_id_from&#x3D;333.337.0.0 1. dp数组的定义和下标。要明">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/gby0716/blogimage/raw/master/c741eaaf110d547b6a83534e9b93801a.png">
 <meta property="og:image" content="https://gitee.com/gby0716/blogimage/raw/master/%E8%82%A1%E7%A5%A8%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E6%97%B6%E6%9C%BA2.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://gitee.com/gby0716/blogimage/raw/master/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D.png">
 <meta property="og:image" content="https://gitee.com/gby0716/blogimage/raw/master/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D2.png">
 <meta property="article:published_time" content="2022-03-10T11:10:13.378Z">
-<meta property="article:modified_time" content="2022-03-10T11:18:33.109Z">
+<meta property="article:modified_time" content="2022-03-10T11:42:54.358Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/gby0716/blogimage/raw/master/c741eaaf110d547b6a83534e9b93801a.png">
@@ -166,28 +166,28 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>title: 动态规划专题<br>date: 2022-03-10 19:10:13<br>tags: leetcode</p>
+<p><font size="5"><strong>思考动态规划问题五个步骤</strong></font></p>
 <p><strong>动态规划五部曲：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13Q4y197Wg?from=search&seid=2081159200671100340&spm_id_from=333.337.0.0">https://www.bilibili.com/video/BV13Q4y197Wg?from=search&seid=2081159200671100340&spm_id_from&#x3D;333.337.0.0</a></strong></p>
-<p><strong>1、dp数组的定义和下标。要明确dp数组中每个元素的含义，以及下标或下标之间的关系</strong></p>
-<p><strong>2、确定递推公式。即如何根据已有的结果推导出当前所需的结果</strong></p>
-<p>**3、dp数组的初始化。 **</p>
-<p><strong>4、遍历顺序。</strong></p>
-<p><strong>5、打印dp数组</strong></p>
+<p><strong>1. dp数组的定义和下标。要明确dp数组中每个元素的含义，以及下标或下标之间的关系</strong></p>
+<p><strong>2. 确定递推公式。即如何根据已有的结果推导出当前所需的结果</strong></p>
+<p>**3. dp数组的初始化。 **</p>
+<p><strong>4. 遍历顺序。</strong></p>
+<p><strong>5. 打印dp数组</strong></p>
 <span id="more"></span>
 
-<p><strong>1、跳跃游戏</strong></p>
-<p><img src="https://gitee.com/gby0716/blogimage/raw/master/c741eaaf110d547b6a83534e9b93801a.png" alt="跳跃游戏"></p>
-<p><strong>解法一</strong>：从前往后求解</p>
+<h1 id="1、跳跃游戏"><a href="#1、跳跃游戏" class="headerlink" title="1、跳跃游戏"></a><font size="5"><strong>1、跳跃游戏</strong></font></h1><p><img src="https://gitee.com/gby0716/blogimage/raw/master/c741eaaf110d547b6a83534e9b93801a.png" alt="跳跃游戏"></p>
+<p><strong>解法一</strong>：<strong>从前往后求解</strong></p>
 <p>    贪心思想，dp数组记录每个位置最远可以到达的位置。初始化，dp[0]&#x3D;nums[0]</p>
 <p>    递推公式：前一个位置最远能达到的位置和当前位置最远能到达位置中的较大值。</p>
 <p>   dp[i] &#x3D; max(i+nums[i], dp[i]);</p>
 <p>    但是，前一个位置是否能到达当前位置呢？不一定！</p>
 <p>    前一个位置能向后<strong>充分条件</strong>是dp[i-1] &gt;&#x3D; i，也就是前一个位置的能到达的最远位置必须不近与当前的位置。</p>
 <p>    利用这个条件，可以提前终止遍历的过程。</p>
-<p>    代码实现：</p>
+<p>    <strong>代码实现：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    public boolean canJump(int[] nums) &#123;</span><br><span class="line">        //动态规划</span><br><span class="line">        if(nums.length == 1) return true;</span><br><span class="line">        int[] dp = new int[nums.length];//dp数组记录当前位置最远可到达的位置</span><br><span class="line">        dp[0] = nums[0];</span><br><span class="line">        int length = nums.length;</span><br><span class="line">        for (int i = 1; i &lt; length; i++)&#123;</span><br><span class="line">            if (dp[i-1] &gt;= i)&#123;  //只有前面位置最少可以向后走一步才可到达当前位置</span><br><span class="line">                dp[i] = Math.max(dp[i-1], nums[i]+i);</span><br><span class="line">          //      if (dp[i] &gt;= length-1) return true; //提前判断是否能到达最后一个下标</span><br><span class="line">            &#125;</span><br><span class="line">            else break;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[length-2] &gt;= length-1 ? true : false;</span><br><span class="line">        //return false;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>    时间复杂度为o(n), 时间复杂度o(n), 需要一个和nums长度相同的dp数组</p>
-<p>**  解法二**：从后往前求解</p>
+<p><strong>解法二：从后往前求解</strong></p>
 <p>    不断判断前一个位置的最远距离是否能达到当前目标。</p>
 <p>    当前目标初始化为最后的下标：target &#x3D; nums.length-1;</p>
 <p>    如果存在nums数组元素满足nums[i] + i &gt;&#x3D; target，则表示在第i个位置可以到达当前的目标，从而只需要考虑在前面还未遍历到的位置是否存在能到达第i个位置的元素。</p>
@@ -195,16 +195,7 @@
 <p><strong>代码实现：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public boolean canJump(int[] nums) &#123;</span><br><span class="line">        if (nums.length == 1) return true;</span><br><span class="line">        int target = nums.length-1;</span><br><span class="line">        boolean flag = false; //记录当前的target能否到达</span><br><span class="line">        for (int i = nums.length-2; i &gt;= 0; i--)&#123;</span><br><span class="line">            if (nums[i]+i &gt;= target)&#123;</span><br><span class="line">                target = i;</span><br><span class="line">                flag = true;</span><br><span class="line">            &#125;else flag = false;</span><br><span class="line">        &#125;</span><br><span class="line">        return flag;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>2、背包问题</strong></p>
-<p>**</p>
-<p>**</p>
-<p>**</p>
-<p>**</p>
-<p>**</p>
-<p>**</p>
-<p><strong>3、股票买卖</strong></p>
-<p>**  1、买卖股票的最佳时机 II**</p>
-<p>**    题目描述**：</p>
+<h1 id="2、背包问题"><a href="#2、背包问题" class="headerlink" title="2、背包问题"></a><font size="5"><strong>2、背包问题</strong></font></h1><h1 id><a href="#" class="headerlink" title></a></h1><h1 id="3、股票买卖"><a href="#3、股票买卖" class="headerlink" title="3、股票买卖"></a><font size="5"><strong>3、股票买卖</strong></font></h1><h2 id="1、买卖股票的最佳时机-II"><a href="#1、买卖股票的最佳时机-II" class="headerlink" title="1、买卖股票的最佳时机 II"></a><font size="4"><strong>1、买卖股票的最佳时机 II</strong></font></h2><p><strong>题目描述：</strong></p>
 <p><img src="https://gitee.com/gby0716/blogimage/raw/master/%E8%82%A1%E7%A5%A8%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E6%97%B6%E6%9C%BA2.png" alt="股票最佳买卖时机2"></p>
 <p><strong>分析</strong>：题目中提到可以同一天购买和出售股票，但是同时最多只能拥有一支股票，所以在同一天可以不断购买和出售股票。</p>
 <p><strong>解题思路</strong>：因为可以在同一天不断购买和出售股票，如果假设我们拥有预知未来的能力，那么我们可以在价格较低的时候购入股票，等待下一次比购买股票时的价格高时出售股票。</p>
@@ -214,32 +205,30 @@
 <p><strong>代码实现：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        int max_profit = 0;</span><br><span class="line">        for(int i = 1; i &lt; prices.length; i++)&#123;</span><br><span class="line">            if (prices[i] &gt; prices[i-1])&#123;</span><br><span class="line">                max_profit += prices[i] - prices[i-1];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max_profit;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>**   2、<strong>最佳买卖股票时机含冷冻期</strong>**</p>
-<p>**    题目描述：**</p>
+<h2 id="2、最佳买卖股票时机含冷冻期"><a href="#2、最佳买卖股票时机含冷冻期" class="headerlink" title="2、最佳买卖股票时机含冷冻期"></a><font size="4"><strong>2、最佳买卖股票时机含冷冻期</strong></font></h2><p>   <strong>题目描述：</strong></p>
 <p><img src="https://gitee.com/gby0716/blogimage/raw/master/%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F.png" alt="含冷冻期"></p>
-<p>**    解题思路：动态规划。**首先将每天的状态简化为持有股票和未持有股票两种，为两种状态分别创建dp数组，dp数组中值的含义在持有股票时和为持有股票时的最大利润。</p>
+<p> <strong>解题思路：</strong>动态规划。首先将每天的状态简化为持有股票和未持有股票两种，为两种状态分别创建dp数组，dp数组中值的含义在持有股票时和为持有股票时的最大利润。</p>
 <p>    根据这两种状态就可以简单地得到转移方程：</p>
-<p>    今天持有股票：have[i] &#x3D; max(have[i-1], no[i-2]-prices[i])，如果今天持有股票，那么这支持有的股票只有两个来源，1、昨天就持有的股票 2、在冷冻期结束之后，今天刚刚购买的股票</p>
-<p>    今天未持有股票：no[i] &#x3D; max(no[i-1], have[i-1]+prices[i]), 如果今天没有股票，那么没有持有的原因只有两种，1、昨天就没有，今天依旧没有 2、昨天持有，今天刚刚卖出</p>
+<p>    今天持有股票：*have[i] &#x3D; max(have[i-1], no[i-2]-prices[i])*，如果今天持有股票，那么这支持有的股票只有两个来源，1、昨天就持有的股票 2、在冷冻期结束之后，今天刚刚购买的股票</p>
+<p>    今天未持有股票：<em>no[i] &#x3D; max(no[i-1], have[i-1]+prices[i])</em>, 如果今天没有股票，那么没有持有的原因只有两种，1、昨天就没有，今天依旧没有 2、昨天持有，今天刚刚卖出</p>
 <p>    通过上述的状态转移方程，很容易计算分别计算每天持有和未持有股票时的最大利润。不过需要注意的是，冷冻期之前至少还要有一天进行股票的买卖。</p>
 <p><strong>代码实现：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    public int maxProfit(int[] prices) &#123;</span><br><span class="line">        //每天有两种状态，持有和未持有</span><br><span class="line">        //持有表示经过冷冻期后今天买入或者昨天就持有</span><br><span class="line">        //have[i] = max(have[i-], no[i-2]-price[i])</span><br><span class="line">        //未持有表示今天卖出或者是昨天未持有</span><br><span class="line">        //no[i] = max(no[i-1], have[i-1]+price[i])</span><br><span class="line">        //初始化 have[0] = -price[0], no[0] = 0</span><br><span class="line">        int length = prices.length;</span><br><span class="line">        int[] have = new int[length];</span><br><span class="line">        int[] no = new int[length];</span><br><span class="line">        have[0] = -prices[0]; no[0] = 0;</span><br><span class="line">        for (int i = 1; i &lt; length; i++)&#123;</span><br><span class="line">            have[i] = Math.max(have[i-1], i &gt;= 2 ? no[i-2]-prices[i] : -prices[i]);</span><br><span class="line">            no[i] = Math.max(no[i-1], have[i-1] + prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return Math.max(have[length-1], no[length-1]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>**</p>
-<p>**<strong>3、打家劫舍问题</strong></p>
-<p>** 1、打家劫舍**</p>
-<p>**    题目描述：**</p>
+
+
+<h1 id="3、打家劫舍问题"><a href="#3、打家劫舍问题" class="headerlink" title="3、打家劫舍问题"></a><font size="5"><strong>3、打家劫舍问题</strong></font></h1><h1 id="1、打家劫舍"><a href="#1、打家劫舍" class="headerlink" title="1、打家劫舍"></a><font size="4"><strong>1、打家劫舍</strong></font></h1><p><strong>题目描述：</strong></p>
 <p><img src="https://gitee.com/gby0716/blogimage/raw/master/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D.png" alt="打家劫舍"></p>
-<p>**    分析：**由于连续偷窃相邻的两个房间会触发报警器，所以相邻的房间不能都偷窃。所以最少需要间隔一个房间，但是如何确定偷窃哪些房间呢？由于小偷很聪明，所以他想了这样的办法来判断哪个房间值得偷窃：</p>
+<p><strong>分析：</strong>由于连续偷窃相邻的两个房间会触发报警器，所以相邻的房间不能都偷窃。所以最少需要间隔一个房间，但是如何确定偷窃哪些房间呢？由于小偷很聪明，所以他想了这样的办法来判断哪个房间值得偷窃：</p>
 <p>    如果当前房间的价值加上间隔一个房间的价值如果大于相邻房间的价值，那就偷这个房间，否则就保留上一个房间偷窃后的结果。</p>
 <p>**解题思路:**通过上述分析，很容易判断这个过程适合动态规划。假设有这样的场景，这个小偷背了一个背包装他盗窃的财物，从这条街的第一家开始偷窃直到最后一家，那么每家的财物价值就是nums数组的值，而</p>
 <p>    小偷的背包可以当作一个dp数组，dp数组的每个值代表小偷路过一户人家时背包里的最大财物金额。</p>
-<p>    所以dp数组的状态转移方程为：dp[i] &#x3D; max(dp[i-2] + nums[i], dp[i-1]), 由于只有两个房间时偷窃哪个房间是容易确定的，所以dp数组的初始化为：dp[0] &#x3D; nums[0], dp[1]&#x3D;max(nums[0], nums[1])。</p>
+<p>    所以dp数组的状态转移方程为：<em>dp[i] &#x3D; max(dp[i-2] + nums[i], dp[i-1])</em>, 由于只有两个房间时偷窃哪个房间是容易确定的，所以dp数组的初始化为：*dp[0] &#x3D; nums[0], dp[1]&#x3D;max(nums[0], nums[1])*。</p>
 <p>    （其实从后往前的过程是一样的，就是从街尾到街头）。</p>
 <p><strong>代码实现：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    public int rob(int[] nums) &#123;</span><br><span class="line">        int length = nums.length;</span><br><span class="line">        if (length == 1) return nums[0];</span><br><span class="line">        if (length == 2) return Math.max(nums[0], nums[1]);</span><br><span class="line">        int[] dp = new int[length]; //dp数组记录小偷路过每个房间时身上的最大金额</span><br><span class="line">        dp[0] = nums[0];</span><br><span class="line">        dp[1] = Math.max(nums[1], nums[0]);</span><br><span class="line"></span><br><span class="line">        //只需要比较相邻的即可</span><br><span class="line">        for (int i = 2; i &lt; length; i++)&#123;</span><br><span class="line">            dp[i] = Math.max(dp[i-2]+nums[i], dp[i-1]);</span><br><span class="line">        &#125;</span><br><span class="line">        return dp[length-1];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>**  2、打家劫舍2**</p>
+<p><font size="4"><strong>2、打家劫舍2</strong></font></p>
 <p><img src="https://gitee.com/gby0716/blogimage/raw/master/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D2.png" alt="打家劫舍2"></p>
 <p><strong>分析：</strong>街道是循环的（首尾相连），同样的相邻房间不能偷窃。</p>
 <p>小偷现在不聪明了，那就多跑一圈，笨鸟先飞。</p>
@@ -550,7 +539,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个正在学习的人</div>
   	  	
     	</section>
     
